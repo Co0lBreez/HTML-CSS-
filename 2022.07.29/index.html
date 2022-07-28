@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ↓↓链接css文件↓↓ -->
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+    <!-- ↓可以直接在<head>头内的<style>Tag内复制.css的代码。效果相同……↓ -->
+    <style>
+        body {
+            background-color: hsl(180, 2%, 10%);
+            color: hsl(0, 0%, 80%);
+            margin: 0;
+
+        }
+
+        p {
+            margin: 0;
+        }
+
+        h4 {
+            margin: 0;
+        }
+
+
+
+        .top {
+            width: 100%;
+            background-color: hsl(180, 30%, 10%);
+            height: 7vw;
+            position: fixed;
+            z-index: 1000;
+        }
+
+        .top h3 {
+            text-align: center;
+
+
+        }
+
+        .sidebar {
+            width: 22%;
+            height: 100%;
+            background-color: hsl(100, 29%, 10%);
+            position: fixed;
+            top: 7vw;
+            bottom: 20%;
+            z-index: 999;
+            overflow: scroll;
+        }
+
+        .content {
+            background-color: hsl(180, 7%, 14%);
+            width: 60%;
+            height: auto;
+            padding: 0;
+            overflow: hidden;
+            position: absolute;
+            /* 绝对位置 */
+            right: 15vw;
+            top: 7vw;
+            /* 
+        如果想把div放在最上层 ，可以设置绝对定位（脱离文档流）和控制div放在最上层 z -index：auto
+        auto可设置一个值，越大袋面越置前，若定义为-1，代表为最底层。div图层的style中的z-index决定。
+        如下设置可基本解决问题。
+        position：absolute;
+        z-index: 1000;
+    */
+            z-index: -1;
+        }
+
+        .bookmarks {
+            height: auto;
+
+        }
+
+        .misc {
+            border: 2px lightgreen solid;
+            margin: 20px;
+            border-radius: 15px;
+
+
+
+        }
+
+        .misc_head {
+            background-color: hsl(36, 50%, 50%);
+            height: 40px;
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .misc_head h4 {
+            text-align: center;
+            padding-top: 8px;
+            color: hsl(0, 0%, 20%);
+
+        }
+
+        .misc_bodies {
+            height: 100px;
+            width: 180px;
+            background-color: none;
+            margin: 10px;
+            padding: 5px;
+            /* 神秘代码：<div>自动对齐 始 */
+            position: relative;
+            vertical-align: top;
+            display: inline-block;
+            /* 神秘代码：<div>自动对齐 终 */
+            border: 1px hsl(351, 100%, 86%) solid;
+            overflow: hidden;
+
+
+        }
+
+        li {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .li_1 {
+            margin-left: 20px;
+            font-size: 16px;
+            list-style: none;
+            font-style: normal;
+            margin-top: 0.2em;
+        }
+
+        a:link {
+            color: hsl(0, 0%, 80%);
+            /* 无下划线 */
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: hsl(0, 0%, 80%);
+            text-decoration: none;
+
+        }
+
+        a:hover {
+            color: hsl(271, 76%, 80%);
+        }
+
+        a:active {
+            color: none;
+        }
+    </style>
+    <title>这是一个普通的标题</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <h3><a href="" class="">目前是一个同步一些东西用的本地网页。比如书签之类的，收集一些工具、资源等……</a></h3>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <!-- 「#...」跳转至此ID所在的Tag（页内跳转） -->
+                    <a href="#misc" class="">浏览器书签</a>
+                <li class="li_1"><a href="#misc" class="">未分类</a></li>
+                <li class="li_1"><a href="#temporary cache" class="">临时缓存</a></li>
+                <li class="li_1"><a href="#about resource" class="">资源相关</a></li>
+                <li class="li_1"><a href="#books" class="">Books</a></li>
+                <li class="li_1"><a href="#wallpapers" class="">Wallpapers</a></li>
+                <li class="li_1"><a href="#anime" class="">Anime</a></li>
+                <li class="li_1"><a href="#wiki" class="">WIKI</a></li>
+                <li class="li_1"><a href="#tools" class="">Tools</a></li>
+                <li class="li_1"><a href="#lessons" class="">Lessons</a></li>
+                <li class="li_1"><a href="#documentaries" class="">Documentaries</a></li>
+                <li class="li_1"><a href="#applications" class="">Applications</a></li>
+                <li class="li_1"><a href="#update" class="">云同步</a></li>
+                <li class="li_1"><a href="#help" class="">帮助文档</a></li>
+                <li class="li_1"><a href="#scripts" class="">脚本&nbsp;插件</a></li>
+                <li class="li_1"><a href="#forum" class="">门户论坛</a></li>
+                <li class="li_1"><a href="#about games" class="">游戏相关</a></li>
+            </ul>
+
+        </div>
+        <div class="content">
+            <div class="bookmarks" id="bookmarks">
+                <!-- 未分类 -->
+                <div class="misc" id="misc">
+                    <div class="misc_head">
+                        <h4>未分类</h4>
+                    </div>
+                    <a href="https://cf.qq.com/web201105/actions.shtml" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>穿越火线活动专区-CF-官方网站-腾讯游戏-三亿鼠标的枪战梦想</p>
+                        </div>
+                    </a>
+                    <a href="https://www.expreview.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>超能网 - 科技生活第一站</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://www.ximalaya.com/album/221374" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>庄子（原文朗读）</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <!-- 以下为复制代码 -->
+                <!-- 临时缓存 -->
+                <div class="misc" id="temporary cache">
+                    <div class="misc_head">
+                        <h4>临时缓存</h4>
+                    </div>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <!-- 资源相关 -->
+                <div class="misc" id="about resource">
+                    <div class="misc_head">
+                        <h4>资源相关</h4>
+                    </div>
+                    <a href="https://mixkit.co/free-sound-effects/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>Download Free Sound Effects for Videos | Mixkit</p>
+                        </div>
+                    </a>
+                    <a href="http://chendandan.store/?p=3379" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>zlibrary最新可用的地址 持续更新</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>pypi | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://acgdh.org/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>ACG导航网 | -╰(^∇^*)专注网站领域优质内容</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://pixabay.com/zh/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>免费正版高清图片素材库 超过2.5百万张优质图片和视频素材可供免费使用和下载</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="http://duososo.com/index.php" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>多搜搜 - 图片搜索 & 新媒体管家工作台</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://www.dbbqb.com/?ref=sotuw.com" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>逗比拯救世界--专业的表情包搜索网站</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://www.fabiaoqing.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>发表情 - 表情包大全 - 微信表情包 - QQ表情包 - 表情包制作 - fabiaoqing.com</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://www.nfyingshi.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>奈菲影视 – 分享世界的精彩</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://huaban.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>花瓣网 - 陪你做生活的设计师（创意灵感天堂，搜索、发现设计灵感、设计素材）</p>
+                        </div>
+                    </a>
+                    <a href="https://www.ghostoact.com/act/tools/emotes" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>表情 - 幽灵疾步-Ghostoact</p>
+                        </div>
+                    </a>
+                    <a href="https://www.jinglingyunpan.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>资源精灵 - 网盘搜索神器，可以替代云盘精灵、虫部落、盘搜搜等工具。</p>
+                        </div>
+                    </a>
+                    <a href="https://tv.cctv.com/yxg/index.shtml" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>央视片库_CCTV节目官网_央视网</p>
+                        </div>
+                    </a>
+                    <a href="https://www.videvo.net/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>Free Stock Video Footage HD 4K Download Royalty-Free Clips</p>
+                        </div>
+                    </a>
+                    <a href="https://www.aigei.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>爱给网_音效配乐_3D模型_视频素材_游戏素材_免费下载</p>
+                        </div>
+                    </a>
+                    <a href="https://www.dbbqb.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>逗比拯救世界--专业的表情包搜索网站</p>
+                        </div>
+                    </a>
+                    <a href="https://search.chongbuluo.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>快搜 - 搜索快人一步 - Google</p>
+                        </div>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+
+                </div>
+                <!-- Books -->
+                <div class="misc" id="books">
+                    <div class="misc_head">
+                        <h4>Books</h4>
+                    </div>
+                    <a href="https://www.marxists.org/chinese/lenin/191708-09/index.htm" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>《国家与革命——马克思主义关于国家的学说与无产阶级在革命中的任务》（1917年8—9月）</p>
+                        </div>
+                    </a>
+                    <a href="https://www.marxists.org/chinese/marx/mia-chinese-marx-184904.htm" class=""
+                        target="_blank">
+                        <div class="misc_bodies">
+                            <p>雇佣劳动与资本 （1849年著，1891年发表的版本）</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://www.marxists.org/chinese/marx/marxist.org-chinese-marx-1865-5.htm" class=""
+                        target="_blank">
+                        <div class="misc_bodies">
+                            <p>马克思：工资、价格和利润（1865年）</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://www.marxists.org/chinese/engels/1880/01.htm" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>社会主义从空想到科学的发展（一）</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://www.marxists.org/chinese/marx/marxist.org-chinese-marx-1844.htm" class=""
+                        target="_blank">
+                        <div class="misc_bodies">
+                            <p>马克思：1844年经济学哲学手稿</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://www.marxists.org/chinese/marx/marxist.org-chinese-marx-1875-4.htm" class=""
+                        target="_blank">
+                        <div class="misc_bodies">
+                            <p>马克思：哥达纲领批判（写于1875年4－5月）</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://www.marxists.org/chinese/lenin/15.htm" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>列宁：帝国主义是资本主义的最高阶段（1916年1-6月）</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://zh.zlib.life/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>数字图书馆。搜索书籍。免费下载书籍</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://zh.wikisource.org/wiki/%E7%8E%89%E5%90%88%E8%A8%98" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>玉合記 - 维基文库，自由的图书馆</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://zlib.shop/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>数字图书馆。搜索书籍。免费下载书籍</p>
+                        </div>
+                    </a>
+                    <a href="https://www.marxists.org/chinese/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>马克思主义文库</p>
+                        </div>
+                    </a>
+                    <a href="http://122.200.75.13/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>殆知阁</p>
+                        </div>
+                    </a>
+                    <a href="http://www.homeinmists.com/index.htm#07" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>白雲深處人家 蔣門馬 中華傳統道文化數字圖書館</p>
+                        </div>
+                    </a>
+                    <a href="http://www.daorenjia.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>道藏 中华道藏 道家经典 在线阅读 下载 -道人家</p>
+                        </div>
+                    </a>
+                    <a href="https://lorefree.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>LoreFree - 首个基于EOS和IPFS的去中心化知识共享社区</p>
+                        </div>
+                    </a>
+                    <a href="https://www.xbiquge.la/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>【香书小说】_香书小说小说网_香书小说小说阅读网_香书小说</p>
+                        </div>
+                    </a>
+                    <a href="https://zh.wikisource.org/wiki/Wikisource:%E9%A6%96%E9%A1%B5" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>维基文库，自由的图书馆</p>
+                        </div>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+
+                </div>
+                <!-- Wallpapers -->
+                <div class="misc" id="wallpapers">
+                    <div class="misc_head">
+                        <h4>Wallpapers</h4>
+                    </div>
+                    <a href="https://wallhaven.cc/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>Awesome Wallpapers - wallhaven.cc</p>
+                        </div>
+                    </a>
+                    <a href="https://alphacoders.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>Alpha Coders - Your Source For Wallpapers, Art, Photography, Gifs and More!</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+
+                </div>
+                <!-- Anime -->
+                <div class="misc" id="anime">
+                    <div class="misc_head">
+                        <h4>Anime</h4>
+                    </div>
+                    <a href="https://www.36dm.club/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>BT下载|动漫下载|动画|漫画 - 简单动漫</p>
+                        </div>
+                    </a>
+                    <a href="https://mikanani.me/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>蜜柑计划 - Mikan Project</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://acg.rip/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>ACG.RIP</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://www.anirena.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>AniRena • Torrent List</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://dmhy.anoneko.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>首頁 - 動漫花園資源網 - 動漫愛好者的自由交流平台</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://kisssub.org/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>爱恋动漫BT下载</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="http://halihali8.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>哈哩哈哩官网_halihali_哈哩哈哩动漫</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+
+                </div>
+                <!-- WIKI -->
+                <div class="misc" id="wiki">
+                    <div class="misc_head">
+                        <h4>WIKI</h4>
+                    </div>
+                    <a href="https://bbs.mihoyo.com/ys/strategy/?bbs_presentation_style=no_header" class=""
+                        target="_blank">
+                        <div class="misc_bodies">
+                            <p>旅行者创作平台-观测枢-原神wiki</p>
+                        </div>
+                    </a>
+                    <a href="https://zh.moegirl.org.cn/Mainpage" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>萌娘百科 万物皆可萌的百科全书 - zh.moegirl.org.cn</p>
+                        </div>
+                    </a>
+                    </a>
+
+                    </a>
+                    <a href="http://en.volupedia.org/wiki/Main_Page" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>Wikipedia, the free encyclopedia</p>
+                        </div>
+                    </a>
+                    </a>
+
+                    </a>
+                    <a href="https://wiki.biligame.com/mc/Minecraft_Wiki" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>Minecraft Wiki - Minecraft Wiki</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+
+                </div>
+                <!-- Tools -->
+                <div class="misc" id="tools">
+                    <div class="misc_head">
+                        <h4>Tools</h4>
+                    </div>
+                    <a href="https://m2t.lolicon.app/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>Magnet2Torrent</p>
+                        </div>
+                    </a>
+                    <a href="https://doyoudo.com/resources" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>doyoudo</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="http://47.108.252.165/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>你配不配吧</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://www.chunkbase.com/apps/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>Minecraft Apps - Overview</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://docsmall.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>docsmall - 免费在线图片压缩、GIF压缩工具、PDF压缩工具、PDF合并工具、PDF分割工具</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://www.xiwnn.com/piano/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>在线钢琴模拟器 - 全键盘模拟钢琴 - 网页上弹钢琴 - 钢琴在线玩</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="http://www.ab126.com/geometric/1722.html" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>笛卡尔坐标距离在线计算器 -坐标距离计算</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+
+                </div>
+                <!-- Lessons -->
+                <div class="misc" id="lessons">
+                    <div class="misc_head">
+                        <h4>Lessons</h4>
+                    </div>
+                    <a href="https://open.163.com/newview/movie/free?pid=M6G42OB8E&mid=M6HSFJPTM" class=""
+                        target="_blank">
+                        <div class="misc_bodies">
+                            <p>耶鲁大学公开课：哲学-死亡-课程介绍-网易公开课</p>
+                        </div>
+                    </a>
+                    <a href="https://www.modevol.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>渐构 Modevol</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://www.runoob.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>菜鸟教程 - 学的不仅是技术，更是梦想！</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://github.com/imarvinle/TeachYourselfCS-CN/blob/master/TeachYourselfCS-CN.md" class=""
+                        target="_blank">
+                        <div class="misc_bodies">
+                            <p>TeachYourselfCS-CN/TeachYourselfCS-CN.md at master · imarvinle/TeachYourselfCS-CN</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://kuangstudy.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>首页-KuangStudy</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://docs.qq.com/sheet/DRU5MWHZCTHFGQnhM?tab=ykvdlu" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>【建议收藏！】最全大学公开课知识库</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+
+                </div>
+                <!-- Documentaries -->
+                <div class="misc" id="documentaries">
+                    <div class="misc_head">
+                        <h4>Documentaries</h4>
+                    </div>
+                    <a href="https://tv.cctv.com/2022/07/01/VIDEoScDQ3DvNIlzqeWWT69T220701.shtml" class=""
+                        target="_blank">
+                        <div class="misc_bodies">
+                            <p>《见证香港故宫》 第1集 空间</p>
+                        </div>
+                    </a>
+                    <a href="https://tv.cctv.com/lm/jmkjs/index.shtml" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>解码科技史_CCTV节目官网</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+
+                </div>
+                <!-- Applications -->
+                <div class="misc" id="applications">
+                    <div class="misc_head">
+                        <h4>Applications</h4>
+                    </div>
+                    <a href="https://koodo.960960.xyz/zh" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>Koodo Reader</p>
+                        </div>
+                    </a>
+                    <a href="https://github.com/zxl2605/fotiaoqiang-VPN-download" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>GitHub - zxl2605/fotiaoqiang-VPN-download: 佛跳墙官方版本下载页 翻墙 代理 科学上网 外网 加速器 梯子 路由</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://www.coolhub.top/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>Yerong の小窝 - Love life, like coding.</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://www.aliyundrive.com/s/bJJatk8vHbV" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>阿里云盘分享</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://www.dogfight360.com/blog/475/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>UsbEAm Hosts Editor [多平台hosts修改] V3.61 – Dogfight360</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+
+                </div>
+                <!-- 云同步 -->
+                <div class="misc" id="update">
+                    <div class="misc_head">
+                        <h4>云同步</h4>
+                    </div>
+                    <a href="http://www.360doc.com/index.html" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>360doc个人图书馆</p>
+                        </div>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+
+                </div>
+                <!-- 帮助文档 -->
+                <div class="misc" id="help">
+                    <div class="misc_head">
+                        <h4>帮助文档</h4>
+                    </div>
+                    <a href="http://www.potplayercn.com/course/2926.html" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>PotPlayer快捷键大全 快捷键一览表 - PotPlayer中文网</p>
+                        </div>
+                    </a>
+                    <a href="https://ffmpeg.org/ffmpeg.html#Stream-specifiers-1" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>ffmpeg Documentation</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://wyagd001.github.io/zh-cn/docs/settings.htm" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>AHK_帮助设置</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://bbs.rainmeter.cn/thread-117875-1-1.html" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>【Rainmeter中文手册第四版】 - Rainmeter官方文档 - 雨滴社区 - Powered by Discuz!</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://zhuanlan.zhihu.com/p/412305974" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>套用括号时应该用哪种括号？甚至，你真的会写括号吗？ - 知乎</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://xuebao.lsnu.edu.cn/info/1154/2375.htm" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>学术出版规范 引文（CY/T 122—2015）-乐山师范学院学报</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+
+                </div>
+                <!-- 脚本 插件 -->
+                <div class="misc" id="scripts">
+                    <div class="misc_head">
+                        <h4>脚本&nbsp;插件</h4>
+                    </div>
+                    <a href="https://blog.csdn.net/gdali/article/details/100080469" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>Chrome/Edge 夜间模式插件:Dark Reader_k7Cx7e的博客-CSDN博客_edge夜间模式插件</p>
+                        </div>
+                    </a>
+                    <a href="https://blog.csdn.net/schinber/article/details/105933107" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>python idle修改主题_schinber的博客-CSDN博客</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+
+                </div>
+                <!-- 门户论坛 -->
+                <div class="misc" id="forum">
+                    <div class="misc_head">
+                        <h4>门户论坛</h4>
+                    </div>
+                    <a href="http://www.9damaogame.net/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>单机游戏_单机游戏下载_上古卷轴5MOD_9damao 9dm玖大猫游戏mod论坛 - Powered by Discuz!</p>
+                        </div>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+
+                </div>
+                <!-- 游戏相关 -->
+                <div class="misc" id="about games">
+                    <div class="misc_head">
+                        <h4>游戏相关</h4>
+                    </div>
+                    <a href="https://www.zyboe.com/ed2000-400418" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>文明5【已整合1.0.3.279升级档+全DLC】_BT种子_硬盘版游戏_游戏下载 的磁力链接 - 磁力搜索</p>
+                        </div>
+                    </a>
+                    <a href="https://www.s-sgames.com/" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>SGAMES-专注于精品游戏</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://www.curseforge.com/minecraft/mc-mods" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>Mods - Minecraft - CurseForge</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="https://pena2.dy.fi/tmp/minecraft/mods/client_mods/?mcver=All" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p>masa's Minecraft mods downloads</p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+                    </a>
+                    <a href="" class="" target="_blank">
+                        <div class="misc_bodies">
+                            <p></p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>

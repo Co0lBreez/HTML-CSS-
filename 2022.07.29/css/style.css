@@ -1,0 +1,139 @@
+body {
+    background-color: hsl(180, 2%, 10%);
+    color: hsl(0, 0%, 80%);
+    margin: 0;
+
+}
+
+p {
+    margin: 0;
+}
+
+h4 {
+    margin: 0;
+}
+
+
+
+.top {
+    width: 100%;
+    background-color: hsl(180, 30%, 10%);
+    height: 7vw;
+    position: fixed;
+    z-index: 1000;
+}
+
+.top h3 {
+    text-align: center;
+
+
+}
+
+.sidebar {
+    width: 22%;
+    height: 100%;
+    background-color: hsl(100, 29%, 10%);
+    position: fixed;
+    top: 7vw;
+    bottom: 20%;
+    z-index: 999;
+    overflow: scroll;
+}
+
+.content {
+    background-color: hsl(180, 7%, 14%);
+    width: 60%;
+    height: auto;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    /* 绝对位置 */
+    right: 15vw;
+    top: 7vw;
+    /* 
+        如果想把div放在最上层 ，可以设置绝对定位（脱离文档流）和控制div放在最上层 z -index：auto
+        auto可设置一个值，越大袋面越置前，若定义为-1，代表为最底层。div图层的style中的z-index决定。
+        如下设置可基本解决问题。
+        position：absolute;
+        z-index: 1000;
+    */
+    z-index: -1;
+}
+
+.bookmarks {
+    height: auto;
+
+}
+
+.misc {
+    border: 2px lightgreen solid;
+    margin: 20px;
+    border-radius: 15px;
+
+
+
+}
+
+.misc_head {
+    background-color: hsl(36, 50%, 50%);
+    height: 40px;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.misc_head h4 {
+    text-align: center;
+    padding-top: 8px;
+    color: hsl(0, 0%, 20%);
+
+}
+
+.misc_bodies {
+    height: 100px;
+    width: 180px;
+    background-color: none;
+    margin: 10px;
+    padding: 5px;
+    /* 神秘代码：<div>自动对齐 始 */
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    /* 神秘代码：<div>自动对齐 终 */
+    border: 1px hsl(351, 100%, 86%) solid;
+    overflow: hidden;
+
+
+}
+
+li {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.li_1 {
+    margin-left: 20px;
+    font-size: 16px;
+    list-style: none;
+    font-style: normal;
+    margin-top: 0.2em;
+}
+
+a:link {
+    color: hsl(0, 0%, 80%);
+    /* 无下划线 */
+    text-decoration: none;
+}
+
+a:visited {
+    color: hsl(0, 0%, 80%);
+    text-decoration: none;
+
+}
+
+a:hover {
+    color: hsl(271, 76%, 80%);
+}
+
+a:active {
+    color: none;
+}
